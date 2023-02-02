@@ -14,49 +14,28 @@ end
 -- funct to create prefix names
 local wk = require("which-key")
 
--- wk.register({ ["<leader>l"] = { name = "+Lsp" } })
+-- vim go
+-- lvim.builtin.which_key.mappings["g"] = {
+--   name = "Golang (vim-go)",
+--   s = { "<cmd>GoFillStruct<cr>", "Go Fill Struct" },
+--   t = { "<cmd>GoAddTags<cr>", "Go Add Tags" },
+--   T = { "<cmd>GoTest<cr>", "Go Test Function" },
+--   e = { "<cmd>GoIfErr<cr>", "Go Auto Generate 'if err" }
+-- }
 
 -- lazy
 map("n", "<leader>L", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 
--- map("n", "<leader>l", "<cmd>w<cr><esc>", { desc = "kabom" })
+-- harpoon
+wk.register({ ["<leader>h"] = { name = "+Harpoon" } })
+map("n", "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Mark for Harpoon" })
+map("n", "<leader>ht", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "Toggle Quick Menu" })
+map("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", { desc = "Go to next" })
+map("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev<cr>", { desc = "Go to previous" }) -- FIX: not working?
 
 --
--- PERF: hop can be used in telescope / file explorer to quicly navigate. use j and k
--- for hop.vim in visual mode
--- easy-motion like
--- Hop
-
-wk.register({ ["<leader>h"] = { name = "+Hop" } })
-
--- map("n", "<leader>h", "", { desc = "Hop" })
-
-map("v", "<leader>hw", "<cmd>HopWordAC<cr>", { desc = "Hop words AC" })
-map("v", "<leader>hb", "<cmd>HopWordBC<cr>", { desc = "Hop words BC" })
-map("v", "<leader>hj", "<cmd>HopLineAC<cr>", { desc = "Hop lines AC" })
-map("v", "<leader>hk", "<cmd>HopLineBC<cr>", { desc = "Hop lines BC" })
-
-map("n", "<leader>hw", "<cmd>HopWordAC<cr>", { desc = "Hop words AC" })
-map("n", "<leader>hb", "<cmd>HopWordBC<cr>", { desc = "Hop words BC" })
-map("n", "<leader>hj", "<cmd>HopLineAC<cr>", { desc = "Hop lines AC" })
-map("n", "<leader>hk", "<cmd>HopLineBC<cr>", { desc = "Hop lines BC" })
-
--- anywhere
-map("v", "<leader>ha", "<cmd>HopAnywhereAC<cr>", { desc = "Hop anywhere AC" })
-map("v", "<leader>hA", "<cmd>HopAnywhereBC<cr>", { desc = "Hop anywhere AC" })
-
-map("n", "<leader>ha", "<cmd>HopAnywhereAC<cr>", { desc = "Hop anywhere AC" })
-map("n", "<leader>hA", "<cmd>HopAnywhereBC<cr>", { desc = "Hop anywhere AC" })
-
--- anywhere currentline
-map("v", "<leader>hc", "<cmd>HopAnywhereCurrentLine<cr>", { desc = "Hop anywhere currentline" })
-map("n", "<leader>hc", "<cmd>HopAnywhereCurrentLine<cr>", { desc = "Hop anywhere currentline" })
-
--- sneak like
-map("v", "<leader>hs", "<cmd>HopChar2AC<cr>", { desc = "Hop 2 character AC" })
-map("v", "<leader>hS", "<cmd>HopChar2BC<cr>", { desc = "Hop 2 character BC" })
-
-map("n", "<leader>hs", "<cmd>HopChar2AC<cr>", { desc = "Hop 2 character AC" })
-map("n", "<leader>hS", "<cmd>HopChar2BC<cr>", { desc = "Hop 2 character BC" })
-
---
+-- p = { "<cmd>lua require('harpoon.ui').nav_prev<cr>", "Go to previous" },
+--   a = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Go to file 1" },
+--   b = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Go to file 2" },
+--   c = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Go to file 3" },
+--   d = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Go to file 4" },
